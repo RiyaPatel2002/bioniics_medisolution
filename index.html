@@ -27,6 +27,10 @@
             transform: translateY(0);
         }
 
+        .reveal-card {
+            transition-delay: var(--reveal-delay, 0ms);
+        }
+
         @media (prefers-reduced-motion: reduce) {
             html {
                 scroll-behavior: auto;
@@ -48,33 +52,38 @@
     <header class="fixed w-full z-50 bg-black/70 backdrop-blur border-b border-gray-800">
         <div class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
             <!-- <h1 class="text-xl font-bold text-[#167893] ">BIONIICS</h1> -->
-             <img src="img/logo.jpeg" alt="BIONIICS Logo" class="h-10">
-            <nav class="hidden md:flex gap-6 text-gray-300">
-                <a href="#" class="hover:text-[#167893] ">Home</a>
-                <a href="#services" class="hover:text-[#167893] ">Services</a>
-                <a href="#about" class="hover:text-[#167893] ">About</a>
-                <a href="#contact" class="hover:text-[#167893] ">Contact</a>
+            <img src="img/logo.jpeg" alt="BIONIICS Logo" class="h-10">
+            <nav class="hidden md:flex items-center gap-8 text-[1.05rem] font-medium text-gray-300">
+                <a href="#" class="transition-colors duration-300 hover:text-[#8fd8e6]">Home</a>
+                <a href="#services" class="transition-colors duration-300 hover:text-[#8fd8e6]">Services</a>
+                <a href="#about" class="transition-colors duration-300 hover:text-[#8fd8e6]">About</a>
+                <a href="#contact" class="transition-colors duration-300 hover:text-[#8fd8e6]">Contact</a>
             </nav>
         </div>
     </header>
 
     <!-- HERO -->
-    <section class="relative h-screen flex items-center justify-center text-center text-white reveal">
-        <img src="https://images.unsplash.com/photo-1586773860418-d37222d8fce3"
+    <section class="relative lg:h-screen flex items-center justify-center text-center text-white reveal lg:h-full h-[600px] ">
+        <img src="img/hero.webp"
             class="absolute w-full h-full object-cover" />
         <div class="absolute inset-0 bg-black/70"></div>
-        <div class="relative z-10 max-w-3xl px-6">
-            <h1 class="text-4xl md:text-6xl font-bold mb-4 leading-relaxed">Innovative Healthcare & Waste Management</h1>
-            <p class="text-lg md:text-xl mb-6 text-gray-300">Safe, sustainable and efficient services for hospitals and
+        <div class="relative z-10 max-w-4xl px-6">
+            <h1 class="text-4xl md:text-6xl font-bold mb-5 mt-10 leading-tight md:leading-[1.05] tracking-tight">
+                Innovative Healthcare & <span class="text-[#167893]"> Waste Management </span></h1>
+            <p class="text-lg md:text-xl mb-8 text-gray-300 max-w-2xl mx-auto leading-relaxed">Safe, sustainable and
+                efficient services for hospitals and
                 industries.</p>
             <div class="flex justify-center gap-4">
-                <button class="bg-[#167893] px-10 py-3 text-xl rounded-full">Get Started</button>
+                <button
+                    class="rounded-full px-10 py-3 text-lg md:text-xl font-semibold text-white shadow-lg shadow-cyan-950/30 transition-all duration-300 bg-gradient-to-r from-[#1f8faa] via-[#167893] to-[#0f5e74] hover:from-[#2aa8c8] hover:via-[#1d93b1] hover:to-[#0c5264] hover:-translate-y-0.5 hover:shadow-[0_18px_40px_rgba(15,94,116,0.45)] focus:outline-none focus:ring-2 focus:ring-[#8fd8e6] focus:ring-offset-2 focus:ring-offset-black">
+                    Get Started
+                </button>
             </div>
         </div>
     </section>
 
     <!-- ABOUT -->
-    <section id="about" class="py-20 px-6 reveal">
+    <section id="about" class="lg:py-20 py-16 px-6 reveal">
         <div class="max-w-7xl mx-auto">
 
             <div class="text-center max-w-3xl mx-auto mb-14">
@@ -90,7 +99,7 @@
 
             <div class="space-y-16">
                 <!-- Healthcare -->
-                <div class="grid md:grid-cols-2 gap-20 items-center reveal">
+                <div class="grid md:grid-cols-2 lg:gap-20 gap-10 items-center reveal">
                     <div class="order-2 md:order-1">
                         <h3 class="text-3xl font-semibold text-[#167893]  mb-4">Healthcare</h3>
                         <p class="text-gray-200 leading-relaxed mb-4 text-lg">
@@ -104,17 +113,15 @@
                         </p>
                     </div>
                     <div class="order-1 md:order-2">
-                        <img src="img/Healthcare.jpg"
-                            alt="Healthcare service"
+                        <img src="img/Healthcare.jpg" alt="Healthcare service"
                             class="w-full h-full object-cover rounded-2xl shadow-lg shadow-black/30">
                     </div>
                 </div>
 
                 <!-- Waste Management -->
-                <div class="grid md:grid-cols-2 gap-20 items-center reveal">
+                <div class="grid md:grid-cols-2 lg:gap-20 gap-10 items-center reveal">
                     <div>
-                        <img src="img/Wasted.jpg"
-                            alt="Waste management service"
+                        <img src="img/Wasted.jpg" alt="Waste management service"
                             class="w-full h-full object-cover rounded-2xl shadow-lg shadow-black/30">
                     </div>
                     <div>
@@ -131,7 +138,7 @@
                 </div>
 
                 <!-- Environmental -->
-                <div class="grid md:grid-cols-2 gap-20 items-center reveal">
+                <div class="grid md:grid-cols-2 lg:gap-20 gap-10 items-center reveal">
                     <div class="order-2 md:order-1">
                         <h3 class="text-3xl font-semibold text-[#167893]  mb-4">Environmental</h3>
                         <p class="text-gray-200 leading-relaxed mb-4 text-lg">
@@ -144,8 +151,7 @@
                         </p>
                     </div>
                     <div class="order-1 md:order-2">
-                        <img src="img/about_environmental.jpg"
-                            alt="Environmental service"
+                        <img src="img/about_environmental.jpg" alt="Environmental service"
                             class="w-full h-full object-cover rounded-2xl shadow-lg shadow-black/30">
                     </div>
                 </div>
@@ -154,14 +160,14 @@
     </section>
 
     <!-- INDUSTRIES WE SERVE -->
-    <section class="py-20 px-6 bg-gradient-to-b from-gray-900 via-black to-gray-950 reveal">
+    <section class="lg:py-20 py-16 px-6 bg-gradient-to-b from-gray-900 via-black to-gray-950 reveal">
         <div class="max-w-7xl mx-auto">
             <div class="text-center max-w-3xl mx-auto mb-12">
                 <span
                     class="inline-block px-4 py-1 mb-4 text-xl tracking-[0.25em] uppercase text-[#167893]  border border-[#167893]/30 rounded-full bg-[#167893]/10 font-bold">
                     Industries We Serve
                 </span>
-                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4 leading-tight mt-5">
+                <h2 class="text-2xl md:text-4xl font-bold text-white mb-4 leading-tight mt-5">
                     Built for sectors where precision and compliance matter
                 </h2>
                 <p class="text-gray-200 leading-relaxed text-base md:text-lg">
@@ -182,8 +188,11 @@
                             <path d="M8 12h8"></path>
                         </svg>
                     </div>
-                    <h3 class="text-xl font-semibold text-white mb-2 transition-colors duration-300 group-hover:text-[#8fd8e6]">Healthcare</h3>
-                    <p class="text-gray-300 text-lg leading-6 transition-colors duration-300 group-hover:text-gray-100">Hospitals and clinics needing dependable support
+                    <h3
+                        class="text-xl font-semibold text-white mb-2 transition-colors duration-300 group-hover:text-[#8fd8e6]">
+                        Healthcare</h3>
+                    <p class="text-gray-300 text-lg leading-6 transition-colors duration-300 group-hover:text-gray-100">
+                        Hospitals and clinics needing dependable support
                         services.</p>
                 </div>
 
@@ -199,8 +208,11 @@
                             <path d="M7 10h10"></path>
                         </svg>
                     </div>
-                    <h3 class="text-xl font-semibold text-white mb-2 transition-colors duration-300 group-hover:text-[#8fd8e6]">Industrial</h3>
-                    <p class="text-gray-300 text-lg leading-6 transition-colors duration-300 group-hover:text-gray-100">Sites needing safe waste handling and compliance support.
+                    <h3
+                        class="text-xl font-semibold text-white mb-2 transition-colors duration-300 group-hover:text-[#8fd8e6]">
+                        Industrial</h3>
+                    <p class="text-gray-300 text-lg leading-6 transition-colors duration-300 group-hover:text-gray-100">
+                        Sites needing safe waste handling and compliance support.
                     </p>
                 </div>
 
@@ -215,8 +227,11 @@
                             <path d="M9 21v-5h6v5"></path>
                         </svg>
                     </div>
-                    <h3 class="text-xl font-semibold text-white mb-2 transition-colors duration-300 group-hover:text-[#8fd8e6]">Government</h3>
-                    <p class="text-gray-300 text-lg leading-6 transition-colors duration-300 group-hover:text-gray-100">Public institutions needing structured service delivery.
+                    <h3
+                        class="text-xl font-semibold text-white mb-2 transition-colors duration-300 group-hover:text-[#8fd8e6]">
+                        Government</h3>
+                    <p class="text-gray-300 text-lg leading-6 transition-colors duration-300 group-hover:text-gray-100">
+                        Public institutions needing structured service delivery.
                     </p>
                 </div>
 
@@ -232,21 +247,24 @@
                             <path d="M8 8h8"></path>
                         </svg>
                     </div>
-                    <h3 class="text-xl font-semibold text-white mb-2 transition-colors duration-300 group-hover:text-[#8fd8e6]">Corporate</h3>
-                    <p class="text-gray-300 text-lg leading-6 transition-colors duration-300 group-hover:text-gray-100">Organizations seeking reliable operational support.</p>
+                    <h3
+                        class="text-xl font-semibold text-white mb-2 transition-colors duration-300 group-hover:text-[#8fd8e6]">
+                        Corporate</h3>
+                    <p class="text-gray-300 text-lg leading-6 transition-colors duration-300 group-hover:text-gray-100">
+                        Organizations seeking reliable operational support.</p>
                 </div>
             </div>
         </div>
     </section>
     <!-- SERVICES -->
-    <section id="services" class="py-24 px-6 reveal">
+    <section id="services" class="lg:py-24 py-16 px-6 reveal">
         <div class="max-w-7xl mx-auto">
             <div class="text-center max-w-3xl mx-auto mb-14">
                 <span
                     class="inline-block px-4 py-1 mb-4 text-xl tracking-[0.25em] uppercase text-[#167893]  border border-[#167893]/30 rounded-full bg-[#167893]/10 font-bold">
                     Our Services
                 </span>
-                <h2 class="text-4xl md:text-4xl font-bold text-white mb-4 mt-5">Specialized solutions across healthcare,
+                <h2 class="text-2xl md:text-4xl font-bold text-white mb-4 mt-5">Specialized solutions across healthcare,
                     waste, and environment</h2>
                 <p class="text-gray-200 leading-relaxed text-[20px]">
                     We provide structured services that support hospital operations, responsible waste handling, and
@@ -255,7 +273,8 @@
             </div>
 
             <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-                <div class="overflow-hidden rounded-3xl border border-white/10 bg-black/30 shadow-lg shadow-black/20 reveal">
+                <div class="group px-4 py-4 border border-[#434343] bg-[#131316] rounded-xl shadow-md cursor-pointer flex flex-col focus:outline-none focus:ring-2 focus:ring-[#167893] hover:shadow-2xl transform hover:-translate-y-1 hover:scale-[1.02] transition-all duration-500 ease-in-out reveal reveal-card"
+                    style="--reveal-delay: 0ms;">
                     <div class="h-52 w-full overflow-hidden bg-gray-950">
                         <img src="https://images.unsplash.com/photo-1587351021759-3e566b2c6f1f?auto=format&fit=crop&w=1200&q=80"
                             alt="Hospital support services" class="h-full w-full object-cover">
@@ -269,7 +288,8 @@
                     </div>
                 </div>
 
-                <div class="overflow-hidden rounded-3xl border border-white/10 bg-black/30 shadow-lg shadow-black/20 reveal">
+                <div class="group px-4 py-4 border border-[#434343] bg-[#131316] rounded-xl shadow-md cursor-pointer flex flex-col focus:outline-none focus:ring-2 focus:ring-[#167893] hover:shadow-2xl transform hover:-translate-y-1 hover:scale-[1.02] transition-all duration-500 ease-in-out reveal reveal-card"
+                    style="--reveal-delay: 90ms;">
                     <div class="h-52 w-full overflow-hidden bg-gray-950">
                         <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd55?auto=format&fit=crop&w=1200&q=80"
                             alt="Medical operations assistance" class="h-full w-full object-cover">
@@ -283,7 +303,8 @@
                     </div>
                 </div>
 
-                <div class="overflow-hidden rounded-3xl border border-white/10 bg-black/30 shadow-lg shadow-black/20 reveal">
+                <div class="group px-4 py-4 border border-[#434343] bg-[#131316] rounded-xl shadow-md cursor-pointer flex flex-col focus:outline-none focus:ring-2 focus:ring-[#167893] hover:shadow-2xl transform hover:-translate-y-1 hover:scale-[1.02] transition-all duration-500 ease-in-out reveal reveal-card"
+                    style="--reveal-delay: 180ms;">
                     <div class="h-52 w-full overflow-hidden bg-gray-950">
                         <img src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?auto=format&fit=crop&w=1200&q=80"
                             alt="Biomedical waste handling" class="h-full w-full object-cover">
@@ -296,7 +317,8 @@
                     </div>
                 </div>
 
-                <div class="overflow-hidden rounded-3xl border border-white/10 bg-black/30 shadow-lg shadow-black/20 reveal">
+                <div class="group px-4 py-4 border border-[#434343] bg-[#131316] rounded-xl shadow-md cursor-pointer flex flex-col focus:outline-none focus:ring-2 focus:ring-[#167893] hover:shadow-2xl transform hover:-translate-y-1 hover:scale-[1.02] transition-all duration-500 ease-in-out reveal reveal-card"
+                    style="--reveal-delay: 270ms;">
                     <div class="h-52 w-full overflow-hidden bg-gray-950">
                         <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80"
                             alt="Hazardous waste collection" class="h-full w-full object-cover">
@@ -310,7 +332,8 @@
                     </div>
                 </div>
 
-                <div class="overflow-hidden rounded-3xl border border-white/10 bg-black/30 shadow-lg shadow-black/20 reveal">
+                <div class="group px-4 py-4 border border-[#434343] bg-[#131316] rounded-xl shadow-md cursor-pointer flex flex-col focus:outline-none focus:ring-2 focus:ring-[#167893] hover:shadow-2xl transform hover:-translate-y-1 hover:scale-[1.02] transition-all duration-500 ease-in-out reveal reveal-card"
+                    style="--reveal-delay: 360ms;">
                     <div class="h-52 w-full overflow-hidden bg-gray-950">
                         <img src="https://images.unsplash.com/photo-1473448912268-2022ce9509d8?auto=format&fit=crop&w=1200&q=80"
                             alt="Waste treatment solutions" class="h-full w-full object-cover">
@@ -324,7 +347,8 @@
                     </div>
                 </div>
 
-                <div class="overflow-hidden rounded-3xl border border-white/10 bg-black/30 shadow-lg shadow-black/20 reveal">
+                <div class="group px-4 py-4 border border-[#434343] bg-[#131316] rounded-xl shadow-md cursor-pointer flex flex-col focus:outline-none focus:ring-2 focus:ring-[#167893] hover:shadow-2xl transform hover:-translate-y-1 hover:scale-[1.02] transition-all duration-500 ease-in-out reveal reveal-card"
+                    style="--reveal-delay: 450ms;">
                     <div class="h-52 w-full overflow-hidden bg-gray-950">
                         <img src="https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?auto=format&fit=crop&w=1200&q=80"
                             alt="Environmental remediation" class="h-full w-full object-cover">
@@ -367,14 +391,14 @@
     </section> -->
 
     <!-- WHY CHOOSE US -->
-    <section class="py-24 px-6 bg-gradient-to-b from-gray-900 via-black to-gray-950 reveal">
+    <section class="lg:py-24 py-16 px-6 bg-gradient-to-b from-gray-900 via-black to-gray-950 reveal">
         <div class="max-w-7xl mx-auto">
             <div class="text-center max-w-3xl mx-auto mb-14">
                 <span
                     class="inline-block px-4 py-1 mb-4 text-xl tracking-[0.25em] uppercase text-[#167893] border border-[#167893]/30 rounded-full bg-[#167893]/10 font-bold">
                     Why Choose Us
                 </span>
-                <h2 class="text-4xl md:text-4xl font-bold text-white mb-4 leading-tight mt-5">
+                <h2 class="text-2xl md:text-4xl font-bold text-white mb-4 leading-tight mt-5">
                     Built for safety, sustainability, and dependable service
                 </h2>
                 <p class="text-gray-200 leading-relaxed text-[20px]">
@@ -462,105 +486,156 @@
     </section> -->
 
     <!-- CONTACT -->
-    <section id="contact" class="py-24 px-6 bg-black reveal">
+    <section id="contact" class="lg:py-24 py-16 px-6 bg-black reveal">
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-14">
                 <h2 class="text-4xl md:text-5xl font-semibold text-white">Let’s Connect</h2>
                 <div class="w-16 h-0.5 bg-[#167893] mx-auto mt-4"></div>
             </div>
 
-            <div class="rounded-3xl border border-[#1f2f3d] bg-[#101114] overflow-hidden shadow-2xl shadow-black/40">
-                <div class="grid lg:grid-cols-2">
-                    <div class="p-8 md:p-12 lg:p-14 flex flex-col justify-between">
-                        <div class="relative min-h-[340px] md:min-h-[420px] flex items-center justify-center">
-                            <svg class="absolute left-10 top-14 w-28 h-28 text-[#167893]/90" viewBox="0 0 120 120" fill="none" aria-hidden="true">
-                                <circle cx="60" cy="60" r="40" fill="currentColor" opacity="0.45"></circle>
-                            </svg>
-                            <svg class="absolute right-16 top-8 w-28 h-28 text-[#8b6cff]/80" viewBox="0 0 120 120" fill="none" aria-hidden="true">
-                                <circle cx="60" cy="60" r="34" fill="currentColor" opacity="0.45"></circle>
-                            </svg>
-                            <svg class="absolute left-1/2 top-24 -translate-x-1/2 w-20 h-28 text-[#2b9fd6]" viewBox="0 0 80 120" fill="none" aria-hidden="true">
-                                <rect x="18" y="6" width="44" height="104" rx="12" fill="currentColor" opacity="0.18"></rect>
-                                <rect x="24" y="14" width="32" height="88" rx="8" fill="currentColor"></rect>
-                                <circle cx="40" cy="94" r="4" fill="white"></circle>
-                            </svg>
-                            <svg class="absolute left-8 bottom-20 w-24 h-24 text-[#2c6f66]/80" viewBox="0 0 120 120" fill="none" aria-hidden="true">
-                                <circle cx="60" cy="60" r="32" fill="currentColor" opacity="0.35"></circle>
-                            </svg>
-                            <svg class="absolute right-16 bottom-16 w-28 h-28 text-[#7b67d8]/80" viewBox="0 0 120 120" fill="none" aria-hidden="true">
-                                <circle cx="60" cy="60" r="34" fill="currentColor" opacity="0.35"></circle>
-                            </svg>
-                            <div class="relative z-10 max-w-sm">
-                                <div class="space-y-6 text-white">
-                                    <div class="flex items-start gap-4">
-                                        <div class="mt-1 text-white">
-                                            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                                                <path d="M4 4h16v16H4z"></path>
-                                                <path d="M4 8h16"></path>
-                                            </svg>
-                                        </div>
-                                        <div>
-                                            <p class="text-lg font-medium">+91 9106634002</p>
-                                        </div>
+            <div class="relative overflow-hidden rounded-[2rem] border border-[#1f2f3d] bg-[#0d0f12] shadow-2xl shadow-black/40">
+                <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(23,120,147,0.18),transparent_35%),radial-gradient(circle_at_bottom_right,rgba(143,216,230,0.10),transparent_30%)]"></div>
+                <div class="relative grid lg:grid-cols-[1.1fr_0.9fr]">
+                    <div class="p-8 md:p-12 lg:p-14 border-b lg:border-b-0 lg:border-r border-[#2a3b48]">
+                        <div class="max-w-xl">
+                            <p class="text-sm uppercase tracking-[0.3em] text-[#8fd8e6] mb-4">Get in touch</p>
+                            <p class="text-gray-200 text-[20px] leading-7 mb-10 max-w-lg">
+                                Share your requirement and we will get back with the right support for your business.
+                            </p>
+
+                            <form class="space-y-5 xl:col-span-2">
+                                <div class="grid md:grid-cols-2 gap-5">
+                                    <div>
+                                        <label class="block text-md font-medium text-gray-300 mb-2" for="name">Name</label>
+                                        <input id="name" type="text" placeholder="Your name"
+                                            class="w-full rounded-2xl border border-[#2d4254] bg-[#11151a] px-4 py-3.5 text-white placeholder:text-gray-500 outline-none transition-all duration-300 focus:border-[#167893] focus:ring-2 focus:ring-[#167893]/25">
                                     </div>
-                                    <div class="flex items-start gap-4">
-                                        <div class="mt-1 text-white">
-                                            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                                                <path d="M4 5h16v14H4z"></path>
-                                                <path d="M4 7l8 6 8-6"></path>
-                                            </svg>
-                                        </div>
-                                        <div>
-                                            <p class="text-lg font-medium break-all">haenterprises103@gmail.com</p>
-                                        </div>
+                                    <div>
+                                        <label class="block text-md font-medium text-gray-300 mb-2" for="email">Email</label>
+                                        <input id="email" type="email" placeholder="Your email"
+                                            class="w-full rounded-2xl border border-[#2d4254] bg-[#11151a] px-4 py-3.5 text-white placeholder:text-gray-500 outline-none transition-all duration-300 focus:border-[#167893] focus:ring-2 focus:ring-[#167893]/25">
                                     </div>
-                                    <div class="flex items-start gap-4">
-                                        <div class="mt-1 text-white">
-                                            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                                                <path d="M12 21s6-5.6 6-11a6 6 0 0 0-12 0c0 5.4 6 11 6 11z"></path>
-                                                <circle cx="12" cy="10" r="2"></circle>
-                                            </svg>
-                                        </div>
-                                        <div>
-                                            <p class="text-lg leading-7">
-                                                4th Floor, Vrundavan Apartment, Panchavati Society, Near Panchavati Circle, Ambawadi, Ahmedabad, Gujarat - 380006
-                                            </p>
-                                        </div>
+                                </div>
+                                <div>
+                                    <label class="block text-md font-medium text-gray-300 mb-2" for="subject">Subject</label>
+                                    <input id="subject" type="text" placeholder="How can we help?"
+                                        class="w-full rounded-2xl border border-[#2d4254] bg-[#11151a] px-4 py-3.5 text-white placeholder:text-gray-500 outline-none transition-all duration-300 focus:border-[#167893] focus:ring-2 focus:ring-[#167893]/25">
+                                </div>
+                                <div>
+                                    <label class="block text-md font-medium text-gray-300 mb-2" for="message">Message</label>
+                                    <textarea id="message" rows="6" placeholder="Write your message here..."
+                                        class="w-full rounded-2xl border border-[#2d4254] bg-[#11151a] px-4 py-3.5 text-white placeholder:text-gray-500 outline-none transition-all duration-300 focus:border-[#167893] focus:ring-2 focus:ring-[#167893]/25"></textarea>
+                                </div>
+                                <button type="submit"
+                                    class="inline-flex w-full items-center justify-center rounded-2xl bg-gradient-to-r from-[#2aa8c8] via-[#167893] to-[#0f5e74] py-3.5 text-lg font-semibold text-white shadow-lg shadow-cyan-950/30 transition-all duration-300 hover:-translate-y-0.5 hover:from-[#34b9d8] hover:via-[#1d93b1] hover:to-[#0c5264] hover:shadow-[0_18px_40px_rgba(15,94,116,0.45)] focus:outline-none focus:ring-2 focus:ring-[#8fd8e6] focus:ring-offset-2 focus:ring-offset-[#0d0f12]">
+                                    Send Message
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="p-8 md:p-12 lg:p-14 flex items-center">
+                        <div class="w-full max-w-xl space-y-5">
+                            <div class="rounded-2xl border border-[#2d4254] bg-[#11151a] p-5 shadow-lg shadow-black/20">
+                                <div class="flex flex-row items-start gap-4">
+                                    <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#167893] text-white shadow-lg shadow-cyan-950/30">
+                                        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.92.32 1.82.6 2.69a2 2 0 0 1-.45 2.11L8 9.8a16 16 0 0 0 6.2 6.2l1.28-1.26a2 2 0 0 1 2.11-.45c.87.28 1.77.48 2.69.6a2 2 0 0 1 1.72 2.03z"></path>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm uppercase tracking-[0.25em] text-[#8fd8e6] mb-1">Phone</p>
+                                        <p class="text-lg font-semibold text-white">+91 9106634002</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="rounded-2xl border border-[#2d4254] bg-[#11151a] p-5 shadow-lg shadow-black/20">
+                                <div class="flex items-start gap-4">
+                                    <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#167893] text-white shadow-lg shadow-cyan-950/30">
+                                        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                            <path d="M4 5h16v14H4z"></path>
+                                            <path d="M4 7l8 6 8-6"></path>
+                                        </svg>
+                                    </div>
+                                    <div class="min-w-0">
+                                        <p class="text-sm uppercase tracking-[0.25em] text-[#8fd8e6] mb-1">Email</p>
+                                        <p class="text-lg font-semibold text-white break-all">bioniicsmedisolutionllp@gmail.com</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="rounded-2xl border border-[#2d4254] bg-[#11151a] p-5 shadow-lg shadow-black/20">
+                                <div class="flex items-start gap-4">
+                                    <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#167893] text-white shadow-lg shadow-cyan-950/30">
+                                        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                            <path d="M12 21s6-5.6 6-11a6 6 0 0 0-12 0c0 5.4 6 11 6 11z"></path>
+                                            <circle cx="12" cy="10" r="2"></circle>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm uppercase tracking-[0.25em] text-[#8fd8e6] mb-1">Address</p>
+                                        <p class="text-lg leading-8 text-white">
+                                            commercial complex, Nakshatra 7, Bapa Sitaram Chowk, Raiya Rd, Rameshvar Park, Kidwai Nagar Society, Rajkot, Gujarat 360005
+                                        </p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>    <!-- FOOTER -->
+    <footer class="bg-[#0b0d10] text-gray-300">
+        <div class="max-w-7xl mx-auto px-6 py-16">
+            <div class="grid gap-10 md:grid-cols-2 xl:grid-cols-5 items-start">
+                <div class="space-y-5 xl:col-span-2">
+                    <img src="img/logo.jpeg" alt="BIONIICS Logo" class="h-12 w-auto">
+                    <p class="max-w-sm text-md leading-6 text-gray-200">
+                        We deliver healthcare, waste management, and environmental solutions with a focus on safety, sustainability, and dependable service.
+                    </p>
+                </div>
 
-                    <div class="p-8 md:p-12 lg:p-14 border-t lg:border-t-0 lg:border-l border-[#1f2f3d]">
-                        <h3 class="text-2xl font-semibold text-white mb-3">Let’s Connect</h3>
-                        <p class="text-gray-400 mb-8 leading-7">
-                            Get in touch with us to explore how we can work together and grow your business.
-                        </p>
+                <div class="lg:-ml-14">
+                    <h3 class="text-xl font-semibold text-white mb-6">Service</h3>
+                    <ul class="space-y-3 text-md text-gray-200">
+                        <li><a href="#services" class="transition-colors duration-300 hover:text-[#8fd8e6]">Hospital Support Services</a></li>
+                        <li><a href="#services" class="transition-colors duration-300 hover:text-[#8fd8e6]">Medical Operations Assistance</a></li>
+                        <li><a href="#services" class="transition-colors duration-300 hover:text-[#8fd8e6]">Biomedical Waste Handling</a></li>
+                        <li><a href="#services" class="transition-colors duration-300 hover:text-[#8fd8e6]">Environmental Remediation</a></li>
+                    </ul>
+                </div>
 
-                        <form class="space-y-5">
-                            <input type="text" placeholder="Name"
-                                class="w-full rounded-lg border border-[#324559] bg-transparent px-4 py-3 text-white placeholder:text-gray-400 outline-none transition-colors focus:border-[#167893]">
-                            <input type="email" placeholder="Email"
-                                class="w-full rounded-lg border border-[#324559] bg-transparent px-4 py-3 text-white placeholder:text-gray-400 outline-none transition-colors focus:border-[#167893]">
-                            <input type="text" placeholder="Subject"
-                                class="w-full rounded-lg border border-[#324559] bg-transparent px-4 py-3 text-white placeholder:text-gray-400 outline-none transition-colors focus:border-[#167893]">
-                            <textarea rows="7" placeholder="Your Message"
-                                class="w-full rounded-lg border border-[#324559] bg-transparent px-4 py-3 text-white placeholder:text-gray-400 outline-none transition-colors focus:border-[#167893]"></textarea>
-                            <button type="submit"
-                                class="w-full rounded-lg bg-[#167893] py-3 font-semibold text-white transition-colors duration-300 hover:bg-[#1f8faa]">
-                                Send Message
-                            </button>
-                        </form>
+                <div>
+                    <h3 class="text-xl font-semibold text-white mb-6">Company</h3>
+                    <ul class="space-y-3 text-md text-gray-200">
+                        <li><a href="#" class="transition-colors duration-300 hover:text-[#8fd8e6]">Home</a></li>
+                        <li><a href="#about" class="transition-colors duration-300 hover:text-[#8fd8e6]">About Us</a></li>
+                        <li><a href="#services" class="transition-colors duration-300 hover:text-[#8fd8e6]">Services</a></li>
+                        <li><a href="#contact" class="transition-colors duration-300 hover:text-[#8fd8e6]">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-xl font-semibold text-white mb-6">Follow Us</h3>
+                    <div class="flex items-center gap-4">
+                        <a href="#" aria-label="Facebook" class="flex h-12 w-12 items-center justify-center rounded-full bg-[#167893] text-white shadow-lg shadow-cyan-950/20 transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#1f8faa]">
+                            <span class="text-2xl font-bold leading-none">f</span>
+                        </a>
+                        <a href="#" aria-label="Instagram" class="flex h-12 w-12 items-center justify-center rounded-full bg-[#167893] text-white shadow-lg shadow-cyan-950/20 transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#1f8faa]">
+                            <span class="text-xl font-bold leading-none">?</span>
+                        </a>
+                        <a href="#" aria-label="Twitter" class="flex h-12 w-12 items-center justify-center rounded-full bg-[#167893] text-white shadow-lg shadow-cyan-950/20 transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#1f8faa]">
+                            <span class="text-xl font-bold leading-none">t</span>
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer class="bg-gray-950 text-center py-6 text-gray-500">
-        © 2026 BIONIICS MEDISOLUTION LLP
+        <div class="bg-[#167893] text-center py-4 text-white text-sm md:text-base">
+            � 2026 BIONIICS MEDISOLUTION LLP. All rights reserved.
+        </div>
     </footer>
 
     <script>
@@ -574,16 +649,25 @@
                 }
             });
         }, {
-            threshold: 0.15,
-            rootMargin: '0px 0px -10% 0px'
+            threshold: 0.08,
+            rootMargin: '0px 0px -5% 0px'
         });
 
         revealElements.forEach((el, index) => {
-            el.style.transitionDelay = `${Math.min(index * 80, 400)}ms`;
+            if (!el.style.getPropertyValue('--reveal-delay')) {
+                el.style.transitionDelay = `${Math.min(index * 80, 400)}ms`;
+            }
             observer.observe(el);
         });
+
+        if (!('IntersectionObserver' in window)) {
+            revealElements.forEach((el) => el.classList.add('is-visible'));
+        }
     </script>
 
 </body>
 
 </html>
+
+
+
