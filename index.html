@@ -885,22 +885,38 @@
         const EMAILJS_TEMPLATE_ID = "template_n2wf0e4";
         const contactForm = document.getElementById("contact-form");
 
-        contactForm.addEventListener("submit", function (event) {
-            event.preventDefault();
+        if (contactForm) {
+            contactForm.addEventListener("submit", function (event) {
+                event.preventDefault();
 
-            emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, contactForm)
-                .then(function () {
-                    alert("Message sent successfully!");
-                    contactForm.reset();
-                }, function (error) {
-                    console.log("FAILED...", error);
-                    if (error && error.text && String(error.text).includes("service ID not found")) {
-                        alert("EmailJS service ID not found. Replace EMAILJS_SERVICE_ID with the exact Service ID from your EmailJS dashboard.");
-                        return;
-                    }
-                    alert("Failed to send message. Please try again.");
-                });
-        });
+                const formData = new FormData(contactForm);
+                const name = String(formData.get("name") || "").trim();
+                const email = String(formData.get("email") || "").trim();
+                const subject = String(formData.get("subject") || "").trim();
+                const message = String(formData.get("message") || "").trim();
+
+                const templateParams = {
+                    name,
+                    email,
+                    subject,
+                    message: `${message}\n\nEmail: ${email}`,
+                    reply_to: email,
+                };
+
+                emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams)
+                    .then(function () {
+                        alert("Message sent successfully!");
+                        contactForm.reset();
+                    }, function (error) {
+                        console.log("FAILED...", error);
+                        if (error && error.text && String(error.text).includes("service ID not found")) {
+                            alert("EmailJS service ID not found. Replace EMAILJS_SERVICE_ID with the exact Service ID from your EmailJS dashboard.");
+                            return;
+                        }
+                        alert("Failed to send message. Please try again.");
+                    });
+            });
+        }
     </script>
 
 </body>
